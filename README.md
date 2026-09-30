@@ -53,7 +53,6 @@ Bite & Bliss provides a complete restaurant website experience for customers alo
 * CSS3
 * JavaScript
 * Bootstrap 5
-* Bootstrap Icons
 
 ### Backend
 
@@ -170,7 +169,7 @@ Example:
 
 ```php
 $host = "localhost";
-$dbname = "restaurant_system";
+$dbname = "restaurant_db";
 $username = "root";
 $password = "";
 ```
