@@ -1,0 +1,340 @@
+/* MENU MANAGEMENT
+   Used by: menu.php, menu_add.php, menu_edit.php
+   Load it AFTER admin.css (the pages already do). */
+
+:root {
+    /* dark theme values */
+    --mn-inset: #111111;
+    --mn-line: #292929;
+    --mn-input-line: #333333;
+    --mn-check-line: #666666;
+    --mn-gold-text: var(--gold);
+
+    --mn-ok-text: #6fe3a1;
+    --mn-ok-bg: rgba(67, 181, 129, 0.12);
+    --mn-ok-line: rgba(67, 181, 129, 0.28);
+
+    --mn-off-text: #999999;
+    --mn-off-bg: rgba(255, 255, 255, 0.05);
+    --mn-off-line: rgba(255, 255, 255, 0.10);
+
+    --mn-err-text: #ff8f8b;
+    --mn-err-bg: rgba(217, 83, 79, 0.12);
+    --mn-err-line: rgba(217, 83, 79, 0.30);
+}
+
+[data-theme="light"] {
+    /* light theme values */
+    --mn-inset: #f3f1ea;
+    --mn-line: #e4e0d5;
+    --mn-input-line: #e4e0d5;
+    --mn-check-line: #b5ae9c;
+    --mn-gold-text: var(--gold-text);
+
+    --mn-ok-text: #1f7a4d;
+    --mn-ok-bg: rgba(67, 181, 129, 0.12);
+    --mn-ok-line: rgba(31, 122, 77, 0.28);
+
+    --mn-off-text: #6b6b6b;
+    --mn-off-bg: rgba(0, 0, 0, 0.04);
+    --mn-off-line: rgba(0, 0, 0, 0.10);
+
+    --mn-err-text: #c0392b;
+    --mn-err-bg: rgba(217, 83, 79, 0.10);
+    --mn-err-line: rgba(192, 57, 43, 0.28);
+}
+
+
+/* SUCCESS / ERROR MESSAGES */
+
+.alert {
+    padding: 14px 18px;
+    margin-bottom: 22px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.alert.alert-success {
+    --bs-alert-color: var(--mn-ok-text);
+    --bs-alert-bg: var(--mn-ok-bg);
+    --bs-alert-border-color: var(--mn-ok-line);
+}
+
+.alert.alert-danger {
+    --bs-alert-color: var(--mn-err-text);
+    --bs-alert-bg: var(--mn-err-bg);
+    --bs-alert-border-color: var(--mn-err-line);
+}
+
+
+/* MENU TABLE */
+
+.menu-admin-thumb {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--mn-inset);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--muted);
+    font-size: 22px;
+}
+
+.menu-admin-thumb img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.restaurant-table.menu-admin-table td strong {
+    display: block;
+    color: var(--white) !important;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.menu-admin-table td small {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 400;
+}
+
+/* price column */
+
+.restaurant-table.menu-admin-table tbody td:nth-child(4) {
+    color: var(--mn-gold-text) !important;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Active / Inactive pill */
+
+.menu-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.menu-status::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.menu-status.active {
+    color: var(--mn-ok-text);
+    background: var(--mn-ok-bg);
+    border: 1px solid var(--mn-ok-line);
+}
+
+.menu-status.inactive {
+    color: var(--mn-off-text);
+    background: var(--mn-off-bg);
+    border: 1px solid var(--mn-off-line);
+}
+
+/* Chef's special */
+
+.menu-featured {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: var(--mn-gold-text);
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.30);
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* edit / delete buttons */
+
+.menu-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.restaurant-table .menu-actions .btn-outline-warning {
+    --bs-btn-focus-shadow-rgb: 212, 175, 55;
+    color: var(--mn-gold-text) !important;
+    background: rgba(212, 175, 55, 0.08) !important;
+    border: 1px solid rgba(212, 175, 55, 0.28) !important;
+}
+
+.restaurant-table .menu-actions .btn-outline-warning:hover {
+    color: #111111 !important;
+    background: var(--gold) !important;
+    border-color: var(--gold) !important;
+}
+
+.restaurant-table .menu-actions .btn-outline-danger {
+    --bs-btn-focus-shadow-rgb: 217, 83, 79;
+    color: var(--red) !important;
+    background: rgba(217, 83, 79, 0.08) !important;
+    border: 1px solid rgba(217, 83, 79, 0.25) !important;
+}
+
+.restaurant-table .menu-actions .btn-outline-danger:hover {
+    color: #ffffff !important;
+    background: var(--red) !important;
+    border-color: var(--red) !important;
+}
+
+/* ADD / EDIT FORM */
+
+/* price field — remove the number input spin arrows */
+
+.user-form-card input[type="number"]::-webkit-outer-spin-button,
+.user-form-card input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.user-form-card input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* description box */
+
+.user-form-card textarea.form-control {
+    min-height: 120px;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+/* image upload field */
+
+.user-form-card .form-control[type="file"] {
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.user-form-card .form-control[type="file"]::file-selector-button {
+    margin: -10px 14px -10px -13px;
+    padding: 10px 16px;
+    color: var(--mn-gold-text);
+    background: rgba(212, 175, 55, 0.12);
+    border: 0;
+    border-right: 1px solid var(--mn-input-line);
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 24px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.user-form-card .form-control[type="file"]:hover::file-selector-button {
+    background-color: rgba(212, 175, 55, 0.22) !important;
+}
+
+/* current image (edit page) */
+
+.current-menu-image {
+    margin-bottom: 12px;
+}
+
+.current-menu-image img {
+    width: 170px;
+    max-width: 100%;
+    height: 110px;
+    display: block;
+    object-fit: cover;
+    background: var(--mn-inset);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+/* "Publish" and "Chef's Special" tick boxes */
+
+.menu-checks {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px 20px;
+    background: var(--mn-inset);
+    border: 1px solid var(--mn-input-line);
+    border-radius: 10px;
+}
+
+.menu-checks label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.menu-checks input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    background: transparent;
+    border: 1.5px solid var(--mn-check-line);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-checks input[type="checkbox"]:checked {
+    background-color: var(--gold);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23111111' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' d='M3.5 8.5l3 3 6-7'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    border-color: var(--gold);
+}
+
+.menu-checks input[type="checkbox"]:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+/* Save / Cancel row */
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mn-line);
+}
+
+.form-actions .btn-submit i {
+    margin-right: 4px;
+}
+
+@media (max-width: 768px) {
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .menu-admin-thumb {
+        width: 52px;
+        height: 52px;
+    }
+}
