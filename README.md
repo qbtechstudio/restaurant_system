@@ -1,4 +1,4 @@
-# 🍽️ Bite & Bliss — Restaurant Management System
+# 🍽️ Bite & Bliss Restaurant Management System
 
 A modern, responsive, and full-stack **Restaurant Management System** developed by **Q&B Tech Studio** using PHP, MySQL, Bootstrap, HTML, CSS, and JavaScript.
 
@@ -58,7 +58,6 @@ Bite & Bliss provides a complete restaurant website experience for customers alo
 ### Backend
 
 * PHP
-* PDO
 
 ### Database
 
@@ -244,7 +243,7 @@ Q&B Tech Studio is a web development and digital solutions studio focused on bui
 
 ### Team
 
-* **Qamar Idrees** — Founder & Full Stack Developer
+* **Qamar Idrees** — Co-Founder & Full Stack Developer
 * **Muhammad Bilal Waris** — Co-Founder & Full Stack Developer
 
 ---
